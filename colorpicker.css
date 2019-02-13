@@ -1,0 +1,20 @@
+#colorSelect {
+    width:100%;
+    border:none;
+    appearance:none;
+}
+
+#colorGrid {
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
+    
+}
+
+.colorBlock {
+    height:25vh;
+    background-color:red;
+}
+
+#color-base {
+    
+}
