@@ -63,22 +63,26 @@ function updateFirst() {
     let baseB = hexToRgb(colorSelect.value).b;
 
     // Using the RGB to HSL function we created earlier to define the HSL. Using the parameters.
-    console.log(rgbToHSL(baseR, baseG, baseB));
+    //console.log(rgbToHSL(baseR, baseG, baseB));
 
     // Defining what the baseH baseS and baseL will be from using the RGB to HSL function given by Peter.
     let baseH = rgbToHSL(baseR, baseG, baseB).h;
     let baseS = rgbToHSL(baseR, baseG, baseB).s;
     let baseL = rgbToHSL(baseR, baseG, baseB).l;
 
-    console.log(baseH);
+    //console.log(baseH);
 
     // Now testing to see the value of the harmony selector and running the function based on which value it is.
     if (harmonySelect.value === "analogous") {
         analogous(baseH, baseS, baseL);
     } else if (harmonySelect.value === "monochromatic") {
         monochromatic(baseH, baseS, baseL);
-
-    }
+    } else if (harmonySelect.value === "triad") {
+        triad(baseH, baseS, baseL);
+    } else if (harmonySelect.value === "shades") {
+        shades(baseH, baseS, baseL);
+        console.log("done")
+    } 
     
 
 
@@ -172,20 +176,21 @@ function monochromatic (h, s, l) {
 }
 
 function triad(h, s, l){
-    let color1l = l + 25;
-    let color2l = l - 50;
-    let color4l = l + 34;
-    let color5l = l - 25;
+    let color1h = h + 60;
+    let color2h = h - 120;
+    let color4h = h - 60;
+    let color5h = h + 120;
 
-    block1.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color1l + "%)";
-    block2.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color2l + "%)";
-    block4.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color4l + "%)";
-    block5.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color5l + "%)";
+    block1.style.backgroundColor = "hsl(" + color1h + ", " + s + "%, " + l + "%)";
+    block2.style.backgroundColor = "hsl(" + color2h + ", " + s + "%, " + l + "%)";
+    block4.style.backgroundColor = "hsl(" + color4h + ", " + s + "%, " + l + "%)";
+    block5.style.backgroundColor = "hsl(" + color5h + ", " + s + "%, " + l + "%)";
+    console.log("lol");
 }
 
 function shades(h, s, l){
     let color1s = s + 25;
-    let color2s = s - 50;
+    let color2s = s + 60;
     let color4s = s + 34;
     let color5s = s - 25;
 
