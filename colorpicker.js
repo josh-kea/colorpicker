@@ -33,6 +33,8 @@ let block5 = document.getElementById("color-5");
 
  // Color selector
  let colorSelect = document.getElementById("colorSelect");
+
+ colorSelect.value = "#0000ff";
  
  // Harmony selector
  let harmonySelect = document.querySelector('#harmonySelect');
@@ -81,7 +83,10 @@ function updateFirst() {
         triad(baseH, baseS, baseL);
     } else if (harmonySelect.value === "shades") {
         shades(baseH, baseS, baseL);
-        console.log("done")
+    } else if (harmonySelect.value === "complementary") {
+        complementary(baseH, baseS, baseL);
+    } else if (harmonySelect.value === "compound") {
+        compound(baseH, baseS, baseL);
     } 
     
 
@@ -185,11 +190,10 @@ function triad(h, s, l){
     block2.style.backgroundColor = "hsl(" + color2h + ", " + s + "%, " + l + "%)";
     block4.style.backgroundColor = "hsl(" + color4h + ", " + s + "%, " + l + "%)";
     block5.style.backgroundColor = "hsl(" + color5h + ", " + s + "%, " + l + "%)";
-    console.log("lol");
 }
 
 function shades(h, s, l){
-    let color1s = s + 25;
+    let color1s = s + 5;
     let color2s = s + 60;
     let color4s = s + 34;
     let color5s = s - 25;
@@ -198,5 +202,29 @@ function shades(h, s, l){
     block2.style.backgroundColor = "hsl(" + h + ", " + color2s + "%, " + l + "%)";
     block4.style.backgroundColor = "hsl(" + h + ", " + color4s + "%, " + l + "%)";
     block5.style.backgroundColor = "hsl(" + h + ", " + color5s + "%, " + l + "%)";
+}
+
+function complementary(h, s, l){
+    let color1h = h + 90;
+    let color2h = h + 180;
+    let color4h = h - 180;
+    let color5h = h - 90;
+
+    block1.style.backgroundColor = "hsl(" + color1h + ", " + s + "%, " + l + "%)";
+    block2.style.backgroundColor = "hsl(" + color2h + ", " + s + "%, " + l + "%)";
+    block4.style.backgroundColor = "hsl(" + color4h + ", " + s + "%, " + l + "%)";
+    block5.style.backgroundColor = "hsl(" + color5h + ", " + s + "%, " + l + "%)";
+}
+
+function compound(h, s, l){
+    let color1h = h + 25;
+    let color2h = h + 90;
+    let color4h = h - 180;
+    let color5h = h - 25;
+
+    block1.style.backgroundColor = "hsl(" + color1h + ", " + s + "%, " + l + "%)";
+    block2.style.backgroundColor = "hsl(" + color2h + ", " + s + "%, " + l + "%)";
+    block4.style.backgroundColor = "hsl(" + color4h + ", " + s + "%, " + l + "%)";
+    block5.style.backgroundColor = "hsl(" + color5h + ", " + s + "%, " + l + "%)";
 }
 

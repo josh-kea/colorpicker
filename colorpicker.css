@@ -12,9 +12,13 @@
 
 .colorBlock {
     height:25vh;
-    background-color:red;
+    background-color:#0000ff;
 }
 
 #color-base {
-    
+
+}
+
+#harmonySelect {
+    text-align:center;
 }
