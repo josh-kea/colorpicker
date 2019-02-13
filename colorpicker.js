@@ -157,6 +157,8 @@ function analogous (h, s, l) {
     block5.style.backgroundColor = "hsl(" + color5h + ", " + s + "%, " + l + "%)";
 }
 
+// Reusable function to set the 4 surrounding color blocks to monochromatic colours, based on the h, s, l of the base used as the parameters.
+
 function monochromatic (h, s, l) {
     let color1l = l + 25;
     let color2l = l - 50;
@@ -167,5 +169,29 @@ function monochromatic (h, s, l) {
     block2.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color2l + "%)";
     block4.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color4l + "%)";
     block5.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color5l + "%)";
+}
+
+function triad(h, s, l){
+    let color1l = l + 25;
+    let color2l = l - 50;
+    let color4l = l + 34;
+    let color5l = l - 25;
+
+    block1.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color1l + "%)";
+    block2.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color2l + "%)";
+    block4.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color4l + "%)";
+    block5.style.backgroundColor = "hsl(" + h + ", " + s + "%, " + color5l + "%)";
+}
+
+function shades(h, s, l){
+    let color1s = s + 25;
+    let color2s = s - 50;
+    let color4s = s + 34;
+    let color5s = s - 25;
+
+    block1.style.backgroundColor = "hsl(" + h + ", " + color1s + "%, " + l + "%)";
+    block2.style.backgroundColor = "hsl(" + h + ", " + color2s + "%, " + l + "%)";
+    block4.style.backgroundColor = "hsl(" + h + ", " + color4s + "%, " + l + "%)";
+    block5.style.backgroundColor = "hsl(" + h + ", " + color5s + "%, " + l + "%)";
 }
 
